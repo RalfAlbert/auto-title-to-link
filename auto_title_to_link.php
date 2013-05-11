@@ -113,7 +113,7 @@ function ajaxcallback_for_auto_title_to_link() {
 		if ( isset( $webpage['response']['code'] ) && 200 === (int) $webpage['response']['code'] && ! empty( $webpage['body'] ) ) {
 			preg_match( "/\<title\>(.*)\<\/title\>/", $webpage['body'], $title );
 			if ( isset( $title[1] ) )
-				$send_result( esc_attr( $title[1] ) );
+				$send_result( $title[1] );
 		}
 	}
 
