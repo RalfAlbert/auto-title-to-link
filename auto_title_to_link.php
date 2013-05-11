@@ -78,6 +78,10 @@ function enqueue_scripts_for_auto_title_to_link() {
 		false,
 		true
 	);
+
+	// set JS object with params
+	wp_localize_script( 'auto-insert-title', 'AutoInsertTitle', array( 'ajaxloaderUrl' => plugins_url( 'js/ajax-loader.gif', __FILE__ ) ) );
+
 }
 
 /**

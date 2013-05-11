@@ -4,16 +4,9 @@
  */
 jQuery(document).ready(
 	function($){
-		
-console.log( 'jQuery ready for auto-link-to-title' );
-
 		$( '#url-field' ).live(
 			'blur',
 			function() {
-				var url   = $(this).val();
-				var nonce = $( '#_ajax_linking_nonce' ).val();
-				var data  = { 'action' : 'auto_link_title', 'nonce' : nonce, 'url' : url };
-				
 				if ( undefined !== AutoInsertTitle.ajaxloaderUrl ) {
 					$( '#link-title-field' ).css(
 							{
@@ -23,16 +16,11 @@ console.log( 'jQuery ready for auto-link-to-title' );
 							}
 					);
 				}
-				
-console.log(data);
 
 				$.post(
 					ajaxurl,
-					data,
+					{ 'action' : 'auto_link_title', 'nonce' : $( '#_ajax_linking_nonce' ).val(), 'url' : $(this).val() },
 					function(result){
-						
-console.log(result);
-
 						if( undefined !== result.title ){
 							$( '#link-title-field' ).val( result.title );
 						}
