@@ -103,6 +103,7 @@ function ajaxcallback_for_auto_title_to_link() {
 
 	// get url and check if the url could be valid
 	$url = filter_input( INPUT_POST, 'url', FILTER_SANITIZE_URL );
+	$url = esc_url_raw( $url, array('http', 'https') );
 	if ( empty( $url ) || false == parse_url( $url ) )
 		$send_result();
 
