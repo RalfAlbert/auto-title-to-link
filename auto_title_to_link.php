@@ -114,8 +114,8 @@ function ajaxcallback_for_auto_title_to_link() {
 	$webpage = wp_remote_get( $url, $args );
 
 	if ( ! is_wp_error( $webpage ) ) {
-		if ( isset( $webpage['response']['code'] ) && 200 === (int) $webpage['response']['code'] && ! empty( $webpage['body'] ) ) {
-			preg_match( "/\<title\>(.*)\<\/title\>/", $webpage['body'], $title );
+		if ( wp_remote_retrieve_response_code($webpage) === 200 && $body = wp_remote_retrieve_body($webpage) ) {
+			preg_match( "/\<title\>(.*)\<\/title\>/", $body, $title );
 			if ( isset( $title[1] ) )
 				$send_result( $title[1] );
 		}
