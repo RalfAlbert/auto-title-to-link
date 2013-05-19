@@ -91,7 +91,7 @@ function enqueue_scripts_for_auto_title_to_link() {
  */
 function ajaxcallback_for_auto_title_to_link() {
 	// create function for sending the results
-	$send_result = function( $title = '' ) {
+	$send_result = function( $title = '' ){
 		header( 'Content-type: application/json' );
 		die( json_encode( array( 'title' => $title ) ) );
 	};
@@ -102,8 +102,9 @@ function ajaxcallback_for_auto_title_to_link() {
 		$send_result( 'Invalid nonce: '.var_export($_POST,1) );
 
 	// get url and check if the url could be valid
-	$url = filter_input( INPUT_POST, 'url', FILTER_SANITIZE_URL );
-	$url = esc_url_raw( $url, array('http', 'https') );
+	$url = filter_input( INPUT_POST, 'url' );
+	$url = esc_url( $url, array('http', 'https') );
+
 	if ( empty( $url ) || false == parse_url( $url ) )
 		$send_result();
 
@@ -125,4 +126,40 @@ function ajaxcallback_for_auto_title_to_link() {
 	// no title found
 	$send_result('');
 
+}
+
+/**
+ * Modified copy of the original WordPress function esc_url()
+ * The original function does not check if the array $url has the key 0 and throws an warning
+ *
+ * @param string $url The URL to be cleaned.
+ * @param array $protocols Optional. An array of acceptable protocols.
+ *		Defaults to 'http', 'https', 'ftp', 'ftps', 'mailto', 'news', 'irc', 'gopher', 'nntp', 'feed', 'telnet', 'mms', 'rtsp', 'svn' if not set.
+ * @param string $_context Private. Use esc_url_raw() for database usage.
+ * @return string The cleaned $url after the 'clean_url' filter is applied.
+ */
+function esc_url( $url, $protocols = null, $_context = 'dp' ) {
+	$original_url = $url;
+
+	if ( '' == $url )
+		return $url;
+	$url = preg_replace('|[^a-z0-9-~+_.?#=!&;,/:%@$\|*\'()\\x80-\\xff]|i', '', $url);
+	$strip = array('%0d', '%0a', '%0D', '%0A');
+	$url = _deep_replace($strip, $url);
+	$url = str_replace(';//', '://', $url);
+	/* If the URL doesn't appear to contain a scheme, we
+	 * presume it needs http:// appended (unless a relative
+	 		* link starting with /, # or ? or a php file).
+	*/
+	if ( isset( $url[0] ) ) {
+		if ( strpos($url, ':') === false && ! in_array( $url[0], array( '/', '#', '?' ) ) && ! preg_match('/^[a-z0-9-]+?\.php/i', $url) )
+			$url = 'http://' . $url;
+	}
+
+	if ( ! is_array( $protocols ) )
+		$protocols = wp_allowed_protocols();
+	if ( wp_kses_bad_protocol( $url, $protocols ) != $url )
+		return '';
+
+	return apply_filters('clean_url', $url, $original_url, $_context);
 }
