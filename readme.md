@@ -1,5 +1,32 @@
-# Autoinsert Linktitle #
+# Auto Insert Title #
 
-Mit diesen Plugin ist es möglich automatisch das Titel-Attribut eines Links im WordPress Editor auszufüllen.
+**Contributors:** Ralf Albert, Sergej Mueller
 
-Wenn im WordPress WYSIWYG-Editor ein Text verlinkt wird, öffnet sich ein PopUp und neben dem Linkziel sollte auch ein Titel eingegeben werden. Dieses Plugin versucht den Link im URL-Feld zu öffnen, einen Titel-Tag zu finden und den Inhalt dessen in das Feld einzufügen.
+## Short Description ##
+With this plugin it is possible to automatically fill in the title attribute of a link in the WordPress editor.
+
+Auto Insert Title needs PHP v5.3+
+
+## Description ##
+With this plugin it is possible to automatically fill in the title attribute of a link in the WordPress editor.  
+If tzhe user focus on the title field in the link insert popup, the plugin tries to fetch the url from the url field and requesting the url. If the requested page delivers a title attribute, this title will be copied into the title field.
+
+## Installation ##
+1. Search for the plugin name in your admin user interfaces plugin page. Then install it.
+
+If you want to install the plugin manually:
+
+1. Download "Auto Insert Title" from the GitHub repository
+2. Unpack the archive.
+3. Upload the unpacked archive folder to your plugins folder.
+4. Activate the plugin.
+
+## Changelog ##
+
+### 0.2 ###
+
+* fixing issue with url handling (replacing buggy esc_url_raw())
+* fixing issue with using internal links
+
+### 0.1 ###
+* First public version on GitHub
