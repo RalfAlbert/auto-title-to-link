@@ -4,8 +4,8 @@
  */
 jQuery(document).ready(
 	function($){
-		$( '#url-field' ).live(
-			'blur',
+		$( '#link-title-field' ).live(
+			'focus',
 			function() {
 				if ( undefined !== AutoInsertTitle.ajaxloaderUrl ) {
 					$( '#link-title-field' ).css(
@@ -19,7 +19,7 @@ jQuery(document).ready(
 
 				$.post(
 					ajaxurl,
-					{ 'action' : 'auto_link_title', 'nonce' : $( '#_ajax_linking_nonce' ).val(), 'url' : $(this).val() },
+					{ 'action' : 'auto_link_title', 'nonce' : $( '#_ajax_linking_nonce' ).val(), 'url' : $('#url-field').val() },
 					function(result){
 						if( undefined !== result.title ){
 							$( '#link-title-field' ).val( result.title );
@@ -30,5 +30,13 @@ jQuery(document).ready(
 				);
 			}
 		);
+		
+		$( '#link-title-field' ).live(
+				'blur',
+				function() {
+					$( '#link-title-field' ).css( 'background-image', 'none' );
+				}
+		);
+
 	}
 );

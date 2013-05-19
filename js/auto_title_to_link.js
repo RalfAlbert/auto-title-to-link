@@ -7,10 +7,11 @@ jQuery(document).ready(
 		
 console.log( 'jQuery ready for auto-link-to-title' );
 
-		$( '#url-field' ).live(
-			'blur',
+		$( '#link-title-field' ).live(
+			'focus',
 			function() {
-				var url   = $(this).val();
+				
+				var url   = $('#url-field').val();
 				var nonce = $( '#_ajax_linking_nonce' ).val();
 				var data  = { 'action' : 'auto_link_title', 'nonce' : nonce, 'url' : url };
 				
@@ -33,7 +34,7 @@ console.log(data);
 						
 console.log(result);
 
-						if( undefined !== result.title ){
+						if( undefined !== result.title && '' != result.title ){
 							$( '#link-title-field' ).val( result.title );
 						}
 						
@@ -41,6 +42,13 @@ console.log(result);
 					}
 				);
 			}
+		);
+		
+		$( '#link-title-field' ).live(
+				'blur',
+				function() {
+					$( '#link-title-field' ).css( 'background-image', 'none' );
+				}
 		);
 	}
 );
