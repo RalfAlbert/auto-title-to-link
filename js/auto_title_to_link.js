@@ -1,20 +1,12 @@
 /**
  * jQuery for plugin Auto Link To Title
- * @version 2013-05-11 
+ * @version 2013-05-20 
  */
 jQuery(document).ready(
 	function($){
-		
-console.log( 'jQuery ready for auto-link-to-title' );
-
 		$( '#link-title-field' ).live(
 			'focus',
 			function() {
-				
-				var url   = $('#url-field').val();
-				var nonce = $( '#_ajax_linking_nonce' ).val();
-				var data  = { 'action' : 'auto_link_title', 'nonce' : nonce, 'url' : url };
-				
 				if ( undefined !== AutoInsertTitle.ajaxloaderUrl ) {
 					$( '#link-title-field' ).css(
 							{
@@ -24,17 +16,12 @@ console.log( 'jQuery ready for auto-link-to-title' );
 							}
 					);
 				}
-				
-console.log(data);
 
 				$.post(
 					ajaxurl,
-					data,
+					{ 'action' : 'auto_link_title', 'nonce' : $( '#_ajax_linking_nonce' ).val(), 'url' : $('#url-field').val() },
 					function(result){
-						
-console.log(result);
-
-						if( undefined !== result.title && '' != result.title ){
+						if( undefined !== result.title ){
 							$( '#link-title-field' ).val( result.title );
 						}
 						
@@ -50,5 +37,6 @@ console.log(result);
 					$( '#link-title-field' ).css( 'background-image', 'none' );
 				}
 		);
+
 	}
 );
