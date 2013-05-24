@@ -1,6 +1,6 @@
-=== Auto Title To Link ===
+=== Auto Insert Title To Link ===
 
-Contributors: Ralf Albert, Sergej Mueller
+Contributors: Ralf Albert
 Donate link: https://github.com/RalfAlbert/auto-title-to-link
 Tags: usability, admin, link, editor
 Requires at least: 3.5
