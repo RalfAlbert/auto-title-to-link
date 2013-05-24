@@ -1,11 +1,11 @@
-# Auto Insert Title To Link #
+# Auto Title To Link #
 
 **Contributors:** Ralf Albert, Sergej Mueller
 
 ## Short Description ##
 With this plugin it is possible to automatically fill in the title attribute of a link in the WordPress editor.
 
-Auto Insert Title To Link needs PHP v5.3+
+Auto Title To Link needs PHP v5.3+
 
 ## Description ##
 With this plugin it is possible to automatically fill in the title attribute of a link in the WordPress editor.  
@@ -16,7 +16,7 @@ If the user focus on the title field in the link insert popup, the plugin tries 
 
 If you want to install the plugin manually:
 
-1. Download "Auto Insert Title To Link" from the GitHub or WordPress repository
+1. Download "Auto Title To Link" from the GitHub or WordPress repository
 2. Unpack the archive. If you downloaded the plugin from a GitHub repository, remove "-master" from the foldername
 3. Upload the unpacked archive folder to your plugins folder.
 4. Activate the plugin.
