@@ -23,6 +23,9 @@ If you want to install the plugin manually:
 
 ## Changelog ##
 
+### 1.0.1 ###
+* Decode html entities in titles
+
 ### 1.0 ###
 * Final version for WordPress repository
 
