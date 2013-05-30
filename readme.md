@@ -23,6 +23,9 @@ If you want to install the plugin manually:
 
 ## Changelog ##
 
+### 1.0.2 ###
+Fix bug with PHP <5.4
+
 ### 1.0.1 ###
 * Decode html entities in titles
 

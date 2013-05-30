@@ -5,7 +5,7 @@ Donate link: https://github.com/RalfAlbert/auto-title-to-link
 Tags: usability, admin, link, editor
 Requires at least: 3.5
 Tested up to: 3.6
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,9 @@ If you want to install the plugin manually:
 1. Auto Title To Link in action
 
 == Changelog ==
+
+= 1.0.2 =
+* Fix bug with PHP <5.4
 
 = 1.0.1 =
 * decode html entities in titles

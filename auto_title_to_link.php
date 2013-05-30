@@ -120,7 +120,7 @@ function ajaxcallback_for_auto_title_to_link() {
 		if ( wp_remote_retrieve_response_code($webpage) === 200 && $body = wp_remote_retrieve_body($webpage) ) {
 			preg_match( "/\<title\>(.*)\<\/title\>/", $body, $title );
 			if ( isset( $title[1] ) )
-				$send_result( html_entity_decode( $title[1], ENT_HTML5, 'UTF-8' ) );
+				$send_result( html_entity_decode( $title[1], ENT_COMPAT | ENT_HTML401, 'UTF-8' ) );
 		}
 	}
 
