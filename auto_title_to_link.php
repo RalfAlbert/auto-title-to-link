@@ -9,19 +9,19 @@
  * @subpackage Auto Insert Title To Link
  * @author     Ralf Albert <me@neun12.de>
  * @license    GPLv3 http://www.gnu.org/licenses/gpl-3.0.txt
- * @version    1.0.1
+ * @version    1.0.2
  * @link       http://wordpress.com
  */
 
 /**
- * Plugin Name:	Auto Insert Title To Link
- * Plugin URI:	http://yoda.neun12.de
- * Description:	Automatically insert the title when a link is created in the WordPress editor popup
- * Version: 	1.0.1
- * Author: 		Ralf Albert
- * Author URI: 	http://yoda.neun12.de
- * Network:     true
- * License:		GPLv3
+ * Plugin Name: Auto Insert Title To Link
+ * Plugin URI:  http://yoda.neun12.de
+ * Description: Automatically insert the title when a link is created in the WordPress editor popup
+ * Version:     1.0.2
+ * Author:      Ralf Albert
+ * Author URI:  http://yoda.neun12.de
+ * Network:     false
+ * License:     GPLv3
  */
 
 /*
